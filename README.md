@@ -3,7 +3,7 @@ Useful C++/Blueprints Library for Unreal Engine 5
 
 Supproted version 5.5
 
-##<Setting>
+##Setting
 1. Place the plugin you want to use in the Plugins folder (if it does not exist Plugins folder, create Plugins folder) inside the Unreal project folder.
    
 2-1. When using in Blueprint, run the project and check the plugin.
@@ -12,7 +12,7 @@ Supproted version 5.5
 2-2. When used in C++ code, add the plug-in name to DependencyModuleNames in the project's build.cs, and then build and run the project.
 ![Image](https://github.com/user-attachments/assets/5ac708fc-8e83-4afe-9dba-3a8c929761f2)
 
-##<How to use>
+##How to use
 ###[MetaPlayer]
 1. MultiMediaSyncPlayer
   - Insert desired video into the file media source.
