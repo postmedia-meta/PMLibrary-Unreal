@@ -10,19 +10,19 @@
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"EngineVersion": "5.4.0",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
-	"Installed": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
 	"Modules": [
 		{
 			"Name": "PMLibrary",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
-			"PlatformAllowList": [
+			"WhitelistPlatforms": [
 				"Win64"
 			],
-			"PlatformDenyList": [
+			"BlacklistPlatforms": [
 				"IOS",
 				"Linux",
 				"Android"

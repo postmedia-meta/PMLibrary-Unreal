@@ -26,6 +26,8 @@ public class MetaPlayer : ModuleRules
 			new string[]
 			{
 				"Core",
+				"MediaAssets",
+				"UMG"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -37,8 +39,7 @@ public class MetaPlayer : ModuleRules
 				"CoreUObject",
 				"Engine",
 				"Slate",
-				"SlateCore",
-				"MediaAssets"
+				"SlateCore"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

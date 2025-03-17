@@ -145,9 +145,6 @@ public:
 	// Han - Closes the socket's connection.
 	UFUNCTION(BlueprintCallable, Category="Meta Client|SendMessage")
 	void CloseSocket();
-
-	UFUNCTION(BlueprintCallable, Category="Meta Client")
-	bool IsConnected();
 	
 	UPROPERTY(BlueprintAssignable, Category = "Meta Client Events")
 	FOnEventSignature OnConnected;

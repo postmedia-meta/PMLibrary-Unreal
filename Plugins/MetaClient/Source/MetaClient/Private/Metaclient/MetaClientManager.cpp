@@ -48,12 +48,6 @@ void UMetaClientManager::ReceiveProto(const TArray<uint8>& Bytes)
 	receiver.receive(Bytes.GetData(), Bytes.Num());
 }
 
-bool UMetaClientManager::IsConnected()
-{
-	Ping();
-	return ClientSocket.IsConnected();
-}
-
 void UMetaClientManager::Ping()
 {
 	FMetaMessage Message;

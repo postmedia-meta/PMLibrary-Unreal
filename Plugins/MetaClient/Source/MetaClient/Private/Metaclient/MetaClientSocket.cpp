@@ -1,15 +1,14 @@
 
 #include "Metaclient/MetaClientSocket.h"
 
+#if ENGINE_MAJOR_VERSION >= 5 && ENGINE_MINOR_VERSION >= 2
+	#include "IPAddressAsyncResolve.h"
+#endif
+
 #include "IPAddress.h"
 #include "Async/Async.h"
 #include "SocketSubsystem.h"
 #include "Networking.h"
-
-#if ENGINE_MAJOR_VERSION >= 5 && ENGINE_MINOR_VERSION >= 2
-#include "IPAddressAsyncResolve.h"  // v5.2 or higher
-#endif
-
 
 void MetaClientSocket::ConnectToSocketAsClient(const FMetaClientSocketOption& ClientSocketOption) // han - change parameter
 {
