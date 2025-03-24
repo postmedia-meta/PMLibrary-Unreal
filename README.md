@@ -12,8 +12,8 @@ Supproted version 5.5
 2-2. When used in C++ code, add the plug-in name to DependencyModuleNames in the project's build.cs, and then build and run the project.
 ![Image](https://github.com/user-attachments/assets/5ac708fc-8e83-4afe-9dba-3a8c929761f2)
 
-## How to use
-### [MetaPlayer]
+# How to use
+## [MetaPlayer]
 1. MultiMediaSyncPlayer
   - Insert desired video into the file media source.
   - Check if the video loops
@@ -37,3 +37,15 @@ Supproted version 5.5
 ![Image](https://github.com/user-attachments/assets/9f4f9d69-a325-4c1d-a870-603214e29bfd)
 
    -  Set each plane to the desired position and size.
+
+## [MetaToolkit]
+1. Add MetaGraphicsSettingsComponent to Player Controller.
+![Image](https://github.com/user-attachments/assets/094ff63d-8b9b-4f42-86fd-0e5238fe271c)
+
+2. To show it, call ShowGraphicsSettingsUI on the component, to hide it, call HideGraphicsSettingsUI.
+![Image](https://github.com/user-attachments/assets/9d273e1c-899f-4270-875b-7367bb1630ce)
+
+3. Play the game and configure the settings after displaying the UI.
+![Image](https://github.com/user-attachments/assets/978c6027-e7ab-4f28-a427-b5db01b9a555)
+
+5. You must click the 'Apply' button to save the converted settings.
