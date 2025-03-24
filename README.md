@@ -39,13 +39,18 @@ Supproted version 5.5
    -  Set each plane to the desired position and size.
 
 ## [MetaToolkit]
-1. Add MetaGraphicsSettingsComponent to Player Controller.
+1. MTKWidget
+   - The MTKWidget is a widget that inherits Usetwidget and displays the mouse cursor based on the Unreal viewport position.
+   - To fit the mouse cursor position to the viewport, you can inherit MTKWidget and use it.
+
+2. MetaGraphicsSettingsComponent
+   - Add MetaGraphicsSettingsComponent to Player Controller.
 ![Image](https://github.com/user-attachments/assets/094ff63d-8b9b-4f42-86fd-0e5238fe271c)
 
-2. To show it, call ShowGraphicsSettingsUI on the component, to hide it, call HideGraphicsSettingsUI.
+   - To show it, call ShowGraphicsSettingsUI on the component, to hide it, call HideGraphicsSettingsUI.
 ![Image](https://github.com/user-attachments/assets/9d273e1c-899f-4270-875b-7367bb1630ce)
 
-3. Play the game and configure the settings after displaying the UI.
+   - Play the game and configure the settings after displaying the UI.
 ![Image](https://github.com/user-attachments/assets/978c6027-e7ab-4f28-a427-b5db01b9a555)
 
-5. You must click the 'Apply' button to save the converted settings.
+   - You must click the 'Apply' button to save the converted settings.
