@@ -11,6 +11,9 @@ class USizeBox;
 class UCanvasPanel;
 class UImage;
 class UCanvasPanelSlot;
+class APlayerController;
+class UGameUserSettings;
+class FViewport;
 
 UCLASS(meta=(DisableNativeTick))
 class METATOOLKIT_API UMTKWidget : public UUserWidget
@@ -45,7 +48,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlayerController")
 	APlayerController* PlayerController = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GameUserSettings")
+	UPROPERTY()
 	UGameUserSettings* GameUserSettings = nullptr;
 
 private:
@@ -60,6 +63,7 @@ private:
 
 protected:
 	virtual void NativeConstruct() override;
+	virtual void NativeDestruct() override;
 	virtual FReply NativeOnMouseMove(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 	virtual void MetaNativeOnViewportResized(FViewport* Viewport, unsigned int I);
 

@@ -22,17 +22,20 @@ public:
 	// Sets default values for this actor's properties
 	AMultiMediaSyncPlayer();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MultiMediaSyncPlayer")
+	USceneComponent* DefaultSceneComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MultiMediaSyncPlayer")
 	UMultiMediaSyncComponent* MultiMediaSyncComponent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Media|Player")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MultiMediaSyncPlayer")
 	TArray<UFileMediaSource*> MediaSources;
 
-	UPROPERTY(BlueprintAssignable, Category="Media|Event")
-	FOnPlayerStateChangeEvent OnPlayerStateChangeEvent;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Media|Player")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MultiMediaSyncPlayer")
 	bool bLoop;
+
+	UPROPERTY(BlueprintAssignable, Category="MultiMediaSyncPlayer|Event")
+	FOnPlayerStateChangeEvent OnPlayerStateChangeEvent;
 
 private:
 	UPROPERTY()
@@ -50,13 +53,13 @@ protected:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="MultiMediaSyncPlayer")
 	void Ready();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="MultiMediaSyncPlayer")
 	void Play();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="MultiMediaSyncPlayer")
 	void Stop();
 
 private:
@@ -64,6 +67,6 @@ private:
 	void ChangedMediaState(const EMultiMediaState NewState);
 
 public:
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="MultiMediaSyncPlayer")
 	TArray<UMediaTexture*> GetMediaTextures() {return MediaTextures;}
 };

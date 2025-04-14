@@ -12,8 +12,6 @@
 	"SupportURL": "",
 	"EngineVersion": "5.5.0",
 	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
 	"Installed": true,
 	"Modules": [
 		{

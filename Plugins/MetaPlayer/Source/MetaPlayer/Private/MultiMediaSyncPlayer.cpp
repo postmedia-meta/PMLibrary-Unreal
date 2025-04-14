@@ -13,6 +13,9 @@ AMultiMediaSyncPlayer::AMultiMediaSyncPlayer()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
+	DefaultSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Default Scene Component"));
+	SetRootComponent(DefaultSceneComponent);
+
 	MultiMediaSyncComponent = CreateDefaultSubobject<UMultiMediaSyncComponent>(TEXT("Multi Media Sync Component"));
 }
 
@@ -27,6 +30,8 @@ void AMultiMediaSyncPlayer::BeginPlay()
 
 void AMultiMediaSyncPlayer::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	Super::EndPlay(EndPlayReason);
+	
 	MultiMediaSyncComponent->OnChangedMultiMediaState.RemoveDynamic(this, &AMultiMediaSyncPlayer::ChangedMediaState);
 	OnPlayerStateChangeEvent.Clear();
 
@@ -34,8 +39,6 @@ void AMultiMediaSyncPlayer::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	for (auto& MediaTexture : MediaTextures) { MediaTexture = nullptr; }
 	MediaPlayers.Empty();
 	MediaTextures.Empty();
-	
-	Super::EndPlay(EndPlayReason);
 }
 
 void AMultiMediaSyncPlayer::Ready()

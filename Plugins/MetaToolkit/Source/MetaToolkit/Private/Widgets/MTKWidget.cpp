@@ -7,6 +7,7 @@
 #include "Components/Image.h"
 #include "Components/SizeBox.h"
 #include "GameFramework/GameUserSettings.h"
+#include "UnrealClient.h"
 
 UMTKWidget::UMTKWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -55,6 +56,13 @@ void UMTKWidget::NativeConstruct()
 
 	// Event
 	FViewport::ViewportResizedEvent.AddUObject(this, &UMTKWidget::MetaNativeOnViewportResized);
+}
+
+void UMTKWidget::NativeDestruct()
+{
+	Super::NativeDestruct();
+
+	FViewport::ViewportResizedEvent.Clear();
 }
 
 FReply UMTKWidget::NativeOnMouseMove(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)

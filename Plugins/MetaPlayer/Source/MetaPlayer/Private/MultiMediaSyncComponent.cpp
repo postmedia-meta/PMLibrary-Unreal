@@ -5,6 +5,8 @@
 #include "MediaPlayer.h"
 #include "MediaTexture.h"
 #include "FileMediaSource.h"
+#include "TimerManager.h"
+#include "Engine/World.h"
 
 UMultiMediaSyncComponent::UMultiMediaSyncComponent()
 {
@@ -13,6 +15,8 @@ UMultiMediaSyncComponent::UMultiMediaSyncComponent()
 
 void UMultiMediaSyncComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	Super::EndPlay(EndPlayReason);
+	
 	// 액터가 사라질 때, 미디어 텍스처를 지우기 위함.
 	// for (const auto MediaPlayerStruct : MediaPlayerStructs)
 	// {
@@ -37,8 +41,6 @@ void UMultiMediaSyncComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		if (MediaPlayerStruct.MediaPlayer->OnPlaybackSuspended.IsBound()) MediaPlayerStruct.MediaPlayer->OnPlaybackSuspended.RemoveDynamic(this, &UMultiMediaSyncComponent::PlaybackSuspended);
 		if (MediaPlayerStruct.MediaPlayer->OnSeekCompleted.IsBound()) MediaPlayerStruct.MediaPlayer->OnSeekCompleted.RemoveDynamic(this, &UMultiMediaSyncComponent::SeekCompleted);	
 	}
-
-	Super::EndPlay(EndPlayReason);
 }
 
 void UMultiMediaSyncComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
