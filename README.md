@@ -3,6 +3,16 @@ Useful C++/Blueprints Library for Unreal Engine 5
 
 Supproted version 5.5
 
+## Introduction
+[MetaPlayer]
+MetaPlayer is a plugin based on WMF Player that plays multiple videos in sync. Since Unreal cannot play videos with a resolution exceeding about 8K, it is designed to split the video into several pieces and import them into Unreal so that the videos can be played in sync.
+
+[MetaToolkit]
+This plugin aims to create several tools that allow you to easily change various settings.
+
+[MetaVFX]
+MetaVFX is designed to provide easy access to a wide range of effects that can be used in media art.
+
 ## Setting
 1. Place the plugin you want to use in the Plugins folder (if it does not exist Plugins folder, create Plugins folder) inside the Unreal project folder.
    
