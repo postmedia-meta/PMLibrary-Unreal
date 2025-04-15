@@ -4,13 +4,13 @@ Useful C++/Blueprints Library for Unreal Engine 5
 Supproted version 5.5
 
 ## Introduction
-[MetaPlayer]
+[MetaPlayer]  
 MetaPlayer is a plugin based on WMF Player that plays multiple videos in sync. Since Unreal cannot play videos with a resolution exceeding about 8K, it is designed to split the video into several pieces and import them into Unreal so that the videos can be played in sync.
 
-[MetaToolkit]
+[MetaToolkit]  
 This plugin aims to create several tools that allow you to easily change various settings.
 
-[MetaVFX]
+[MetaVFX]  
 MetaVFX is designed to provide easy access to a wide range of effects that can be used in media art.
 
 ## Setting
@@ -64,3 +64,64 @@ MetaVFX is designed to provide easy access to a wide range of effects that can b
 ![Image](https://github.com/user-attachments/assets/978c6027-e7ab-4f28-a427-b5db01b9a555)
 
    - You must click the 'Apply' button to save the converted settings.
+
+## [MetaVFX]  
+1. MetaMagicTrail
+  - Add MetaMagicTrailManager to playercontroller.
+![Image](https://github.com/user-attachments/assets/052cc2c0-1f67-4473-9130-f66837d82acb)
+
+  - Bind events to turn the UI on/off
+  - Masking can use video files and image files.
+![Image](https://github.com/user-attachments/assets/cb41fc0a-b8c6-496b-a105-134961b3b542)
+
+  - Edit UI allows you to modify data even after a build.
+![Image](https://github.com/user-attachments/assets/e6452028-e719-4fc8-ad2b-b5199e3b0868)
+
+  - Settings
+![Image](https://github.com/user-attachments/assets/340d9706-dbf3-4398-861c-c7b2a5cb2fd0)
+  * Init Create Pool Num: Determines how many objects will be created when the game starts. Niagara system actors will be used for interactions based on the object pool.
+  * Particle Activation Threshold Sec: When an interaction is detected, a particle is generated after this amount of seconds.
+  * Reset Time: How often will all interactions be cleared every second. (to prevent sensor, internet, focusing issues, etc.)
+  * Use Mouse: Whether to allow mouse interaction.
+  * Use Ray: Whether to use Linetrace. (if false, create it directly at the screen position)
+  * Use Edit UI: Whether to use the UI. (if ture, use the saved values ​​instead of the values ​​set in the Editor)
+   
+2. MetaFluidArt
+2-1 MefaFluidArtManager
+  - Add FluidArtManager to playercontroller.
+![Image](https://github.com/user-attachments/assets/836c6853-e247-4497-aafc-f0cfd7c4e8c0)
+
+  - Bind events to turn the UI on/off
+  - Place actors that can collide with the ray in appropriate locations.
+
+  - Settings
+![Image](https://github.com/user-attachments/assets/1280de16-f2a8-4f36-8ed7-d7d9bc64ee64)
+  * Interaction Scale: The size of the interacting sphere.
+  * Scale Increase Time: The time it takes for the interaction sphere to grow from 0 to the interaction scale.
+  * Scale Decrease Time: The time it takes for the interaction sphere to decrease to 0 on the interaction scale.
+
+3-1. MetaFluidArtActorComponent
+  - Add a MetaFluidArtActorComponent to the activity you want to place in the world.
+
+  - Settings
+![Image](https://github.com/user-attachments/assets/3f1b3615-b336-49e6-b917-840d9c02adfd)
+  * Using Force can accentuate rendering alignment issues caused by overlapping particles, but the basic fluid motion is more natural.
+  &#8251; The noise category applies when Force is not used.
+  * Collider Visible: Visibility of the collider causing the noise.
+  * Duration: The time during which noise.
+  * Collider Num: Number of colliders.
+  * Noise Collider Scale: The size of the collider that generates noise.
+  * Start Location Offset: The start location offset of the collider in the area.
+  * Noise Range: The area where noise occurs.
+  * Min Length: The minimum length the collider must move.
+  * Max Length: The maximum distance the collider can move.
+
+![image](https://github.com/user-attachments/assets/830c66f8-ffe9-4636-aca1-c408590e43d2)
+  * Num Cells Max Axis : Number of axes. (the higher the number, the more densely the particles are placed)
+  * Particle Per Cells: Number of particles per cell (the higher the number, the more particles there are, filling up empty space.)
+  * Pressure Iterations: The number of times the water pressure is calculated per second.
+  * Sprite Scale: The size of the particle.
+  * Texture: Base image
+  * Texture Change Delay: The time it takes for a particle to be created and a new particle to be recreated (previously created particles will soon be destroyed).
+  * UV Step: Adjust the UV values ​​of the texture (to solve the problem of UV being slightly cut off depending on the value of Num Cells Max Axis)
+  * World Grid Extents : X - Depth // Y - Width // Z - Height (Set Y and Z to match the UV values ​​of the texture)
